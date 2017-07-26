@@ -1,4 +1,11 @@
 var fs = require('fs');
-var coso =  fs.readFileSync('/path/to/file');
-var str = buf.toString();
-console.log(str);
+var file = process.argv[2],
+lineCount = 0,
+strBuffer;
+
+strBuffer = fs.readFileSync(file, 'utf8');
+strBuffer = strBuffer.replace(/\n+$/, '');
+strBuffer = strBuffer.split('\n');
+lineCount = strBuffer.length-1;
+
+console.log(lineCount);
